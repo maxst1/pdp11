@@ -88,6 +88,6 @@ void load_file() {
 
 void mem_dump(adr start, word n) {
 	for (adr i = 0; i < n / 2; i++) {
-		printf("%.6o : %.6o\n", start + 2 * i, mem[start + 2 * i] | (mem[start + 2 * i + 1] << 8));
+		printf("%.6o : %.6o\n", start + 2 * i, w_read(start + 2*i));
 	}
 }
