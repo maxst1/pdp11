@@ -14,6 +14,7 @@ byte b_read(Adress adr);
 void w_write(Adress adr, word w);
 word w_read(Adress adr);
 
+
 int main() {
     test_mem();
     return 0;
@@ -71,4 +72,22 @@ void test_mem() {
     printf("%02hhx = 0b\n", bres2);
     assert(bres1 == 0x0a);
     assert(bres2 == 0x0b);
+}
+
+void load_file() {
+	adr a, n, c;
+	byte b;
+	while (scanf("%x %x", &a, &n) == 2) {
+		for (adr i = 0; i < n; i++) {
+			scanf("%x", &c);
+			b = c & 0xFF;
+			b_write(a + i, b);
+		}
+	}
+}
+
+void mem_dump(adr start, word n) {
+	for (adr i = 0; i < n / 2; i++) {
+		printf("%.6o : %.6o\n", start + 2 * i, mem[start + 2 * i] | (mem[start + 2 * i + 1] << 8));
+	}
 }
