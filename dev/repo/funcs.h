@@ -1,0 +1,16 @@
+void CLR(word w);
+void add(word w);
+void SOB(word w);
+void mov(word w);
+void halt(word w);
+void unknown(word w);
+void tst(word w);
+void cmp(word w);
+void cs(word w);
+void br(word w);
+void beq(word w);
+void bpl(word w);
+void jsr(word w);
+void rts(word w);
+void push(byte r);
+void pop(byte r);
